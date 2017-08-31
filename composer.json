@@ -1,0 +1,36 @@
+{
+    "name": "elvanto/omnipay-tithely",
+    "description": "Tithe.ly driver for the Omnipay payment processing library",
+    "keywords": [
+        "omnipay",
+        "tithely"
+    ],
+    "homepage": "https://github.com/elvanto/omnipay-tithely",
+    "license": "MIT",
+    "require": {
+        "php" : ">=5.3.0",
+        "omnipay/common": "~2.0"
+    },
+    "require-dev": {
+        "omnipay/tests": "~2.0",
+        "scrutinizer/ocular": "~1.1"
+    },
+    "autoload": {
+        "psr-4": {
+            "Omnipay\\Tithely\\": "src"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "League\\Tithely\\Test\\": "tests"
+        }
+    },
+    "scripts": {
+        "test": "phpunit"
+    },
+    "extra": {
+        "branch-alias": {
+            "dev-master": "1.0-dev"
+        }
+    }
+}

@@ -1,0 +1,28 @@
+HTTP/1.1 200 OK
+Server: Apache
+Date: Sun, 11 May 2014 21:17:31 GMT
+Content-Type: application/json; charset=utf-8
+Status: 200 OK
+
+{
+	"status": "success",
+	"charge_id": "ch_HYPFilaqVuA",
+	"type": "Charge",
+	"object": {
+		"charge_status": "charged",
+		"amount": "1000",
+		"net_amount": "1000",
+		"fees": "00",
+		"currency": "AUD",
+		"giving_type": "registration",
+		"charge_date": "1502755854",
+		"deposit_date": "pending",
+		"payment_method": {
+			"last_4_digits": "4242",
+			"brand": "Visa",
+			"pm_type": "card",
+			"account_id": "user_HYPFilaq8vA",
+			"pm_id": "pm_HYPFilaq841"
+		}
+	}
+}

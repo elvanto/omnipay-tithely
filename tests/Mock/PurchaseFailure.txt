@@ -1,0 +1,10 @@
+HTTP/1.1 200 OK
+Server: Apache
+Date: Sun, 11 May 2014 21:17:31 GMT
+Content-Type: application/json; charset=utf-8
+Status: 200 OK
+
+{
+	"reason": "There was a problem using that payment method. Please try again in a few minutes.",
+	"status": "fail"
+}

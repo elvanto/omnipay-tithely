@@ -1,0 +1,41 @@
+HTTP/1.1 200 OK
+Server: Apache
+Date: Sun, 11 May 2014 21:17:31 GMT
+Content-Type: application/json; charset=utf-8
+Status: 200 OK
+
+{
+	"status": "success",
+	"organization_id": "org_ULCSvyndIhN",
+    	"type": "Organization",
+    	"object": {
+    		"widget_id": "1000",
+    		"account_id": "user_ULCSvynd8vJ",
+    		"created_date": "1500853294",
+    		"name": "Test Organization",
+    		"phone_number": "8888888888",
+    		"address": {
+    			"street_address": "123 Test",
+    			"city": "Gold Coast",
+    			"state": "QLD",
+    			"postal": "4227",
+    			"country": "AU"
+    		},
+    		"giving_types": [
+    			"Tithe"
+    		],
+    		"bank": {
+    			"account_number_last4": "3456",
+    			"name": "STRIPE TEST BANK",
+    			"country": "AU",
+    			"currency": "AUD"
+    		},
+    		"legal": {
+    			"entity_type": "organization",
+    			"organization_name": "Test Organization",
+    			"first_name": "John",
+    			"last_name": "Doe",
+    			"date_of_birth": "1\/1\/1980"
+    		}
+    	}
+}

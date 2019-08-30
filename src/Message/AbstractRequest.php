@@ -57,7 +57,7 @@ abstract class AbstractRequest extends BaseAbstractRequest
     {
         $url = $this->getEndpoint();
         $httpResponse = $this->httpClient->request(
-        'POST',
+            'POST',
             $url,
             ['Authorization' => 'Basic ' . base64_encode($this->getPublicKey() . ':' . $this->getPrivateKey())],
             json_encode(
@@ -74,7 +74,7 @@ abstract class AbstractRequest extends BaseAbstractRequest
         $httpResponse = $this->httpClient->request(
             'GET',
             $url,
-            ['Authorization' => 'Basic ' . base64_encode($this->getPublicKey() . ':' . $this->getPrivateKey())],
+            ['Authorization' => 'Basic ' . base64_encode($this->getPublicKey() . ':' . $this->getPrivateKey())]
         );
 
         return $this->createResponse(json_decode($httpResponse->getBody()->getContents(), true));

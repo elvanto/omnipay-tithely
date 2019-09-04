@@ -11,10 +11,7 @@
 
 
 [Omnipay](https://github.com/thephpleague/omnipay) is a framework agnostic, multi-gateway payment
-processing library for PHP 5.3+. This package implements Tithe.ly support for Omnipay.
-
-This is where your description should go. Try and limit it to a paragraph or two, and maybe throw in a mention of what
-PSRs you support to avoid any confusion with users and contributors.
+processing library for PHP 5.6+. This package implements Tithe.ly support for Omnipay.
 
 ## Install
 
@@ -23,6 +20,10 @@ Via Composer
 ``` bash
 $ composer require elvanto/omnipay-tithely
 ```
+
+## Versions
+
+Omnipay 3.x is supported starting with v2.0.0 of this package.
 
 ## Usage
 

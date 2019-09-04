@@ -59,10 +59,11 @@ abstract class AbstractRequest extends BaseAbstractRequest
         $httpResponse = $this->httpClient->request(
             'POST',
             $url,
-            ['Authorization' => 'Basic ' . base64_encode($this->getPublicKey() . ':' . $this->getPrivateKey())],
-            json_encode(
-                $data
-            )
+            [
+                'Authorization' => 'Basic ' . base64_encode($this->getPublicKey() . ':' . $this->getPrivateKey()),
+                'Content-Type' => 'application/x-www-form-urlencoded'
+            ],
+            http_build_query($data)
         );
 
         return $this->createResponse(json_decode($httpResponse->getBody()->getContents(), true));
@@ -70,7 +71,7 @@ abstract class AbstractRequest extends BaseAbstractRequest
 
     public function getOrganization()
     {
-        $url = $this->getEndpoint() . '/organizations/' . $this->getOrganizationId();
+        $url = self::getEndpoint() . '/organizations/' . $this->getOrganizationId();
         $httpResponse = $this->httpClient->request(
             'GET',
             $url,

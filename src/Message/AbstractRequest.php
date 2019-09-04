@@ -56,29 +56,29 @@ abstract class AbstractRequest extends BaseAbstractRequest
     public function sendData($data)
     {
         $url = $this->getEndpoint();
-        $httpResponse = $this->httpClient->post(
+        $httpResponse = $this->httpClient->request(
+            'POST',
             $url,
-            null,
-            $data,
-            array(
-                'auth' => array($this->getPublicKey(), $this->getPrivateKey())
-            )
-        )->send();
+            [
+                'Authorization' => 'Basic ' . base64_encode($this->getPublicKey() . ':' . $this->getPrivateKey()),
+                'Content-Type' => 'application/x-www-form-urlencoded'
+            ],
+            http_build_query($data)
+        );
 
-        return $this->createResponse($httpResponse->json());
+        return $this->createResponse(json_decode($httpResponse->getBody()->getContents(), true));
     }
 
     public function getOrganization()
     {
-        $httpResponse = $this->httpClient->get(
-            self::getEndpoint() . '/organizations/' . $this->getOrganizationId(),
-            null,
-            array(
-                'auth' => array($this->getPublicKey(), $this->getPrivateKey())
-            )
-        )->send();
+        $url = self::getEndpoint() . '/organizations/' . $this->getOrganizationId();
+        $httpResponse = $this->httpClient->request(
+            'GET',
+            $url,
+            ['Authorization' => 'Basic ' . base64_encode($this->getPublicKey() . ':' . $this->getPrivateKey())]
+        );
 
-        return $this->createResponse($httpResponse->json());
+        return $this->createResponse(json_decode($httpResponse->getBody()->getContents(), true));
     }
 
     protected function getEndpoint()

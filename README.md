@@ -33,6 +33,62 @@ The following gateways are provided by this package:
 
 For general usage instructions, please see the main [Omnipay](https://github.com/thephpleague/omnipay) repository.
 
+### Specific Usage Instructions 
+
+Omnipay tithely is an API middleware to simplify requests to [Tithely Quick-Charge v1](https://docs.tithe.ly/reference/quick-charge) and later V2. This Tithely api allows users to create a payment request without creating an account. 
+
+### Creating the payment request.
+
+#### Tithely Payment Gateway
+Validation data like our *tithely organisation id* `tithely_org_Id`, *tithely public `tithely_public` and secret `tithely_secret` keys* exist as part of our gateway request. Additionally the gateway also takes our *giving type* `giving_type` field as a string.
+
+The gateway details are set with the functions: 
+```php
+$gateway->setPublicKey($tithely_public);  // Required
+$gateway->setPrivateKey($tithely_secret);  // Required
+$gateway->setOrganizationId($tithely_org_Id);   // Required
+$gateway->setGivingType("Offering");  // Required
+```
+
+#### Request Body
+Unlike regular use of the tithely quick charge api, the omnipay/tithely api object requires a *card* object within the request to pass our `first_name`, `last_name`, and `email`. The `token`, `description`, `currency` and exist in request objects main body.
+
+Specific to omnipay / tithely the `currency` field within the `$request` body is required.
+
+```php
+$request["card"] =  new CreditCard(array(  
+    "first_name" => $first_name,   // Required
+    "last_name" => $last_name,   // Required
+    "email" => $email   // Required
+));  
+  
+$request["token"] = $token; // Stripe token. Required
+$request["amount"] = "10.00";  // Required
+$request["description"] = "Donation to church.";
+$request["currency"] = $currency; //e.g. "USD" "CAD" "AUD" Required
+
+$gateway = Omnipay::create('Tithely');
+
+$tithely_public = "pub_*****"; // Required
+$tithely_secret = "pri_*****"; // Required
+$tithely_org_Id = "org_*****"; // Required
+
+$gateway->setPublicKey($tithely_public);  // Required
+$gateway->setPrivateKey($tithely_secret);  // Required
+$gateway->setOrganizationId($tithely_org_Id);   // Required
+$gateway->setGivingType("Offering");  // Required
+
+$response = $gateway->purchase($request)->send();
+```
+
+### Accessing the response object.
+
+The `$reponse` comes as a protected object. To access the response use the `getRequest` and `getData()` odadmnipay functions.
+
+```php
+$response->getRequest()->getData()["first_name"];
+```
+
 ## Support
 
 If you are having general issues with Omnipay, we suggest posting on

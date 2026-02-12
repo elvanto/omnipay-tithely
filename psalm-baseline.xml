@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<files psalm-version="6.15.1@28dc127af1b5aecd52314f6f645bafc10d0e11f9">
+  <file src="src/Gateway.php">
+    <MissingOverrideAttribute>
+      <code><![CDATA[public function getDefaultParameters()]]></code>
+      <code><![CDATA[public function getName()]]></code>
+    </MissingOverrideAttribute>
+    <UnusedClass>
+      <code><![CDATA[Gateway]]></code>
+    </UnusedClass>
+  </file>
+  <file src="src/Message/AbstractRequest.php">
+    <MissingOverrideAttribute>
+      <code><![CDATA[public function sendData($data)]]></code>
+    </MissingOverrideAttribute>
+    <PossiblyUnusedMethod>
+      <code><![CDATA[setGivingType]]></code>
+      <code><![CDATA[setOrganizationId]]></code>
+      <code><![CDATA[setPrivateKey]]></code>
+      <code><![CDATA[setPublicKey]]></code>
+    </PossiblyUnusedMethod>
+  </file>
+  <file src="src/Message/PurchaseRequest.php">
+    <MissingOverrideAttribute>
+      <code><![CDATA[public function getData()]]></code>
+      <code><![CDATA[public function getEndpoint()]]></code>
+    </MissingOverrideAttribute>
+    <UnusedClass>
+      <code><![CDATA[PurchaseRequest]]></code>
+    </UnusedClass>
+  </file>
+  <file src="src/Message/Response.php">
+    <MissingOverrideAttribute>
+      <code><![CDATA[public function getMessage()]]></code>
+      <code><![CDATA[public function getTransactionReference()]]></code>
+      <code><![CDATA[public function isSuccessful()]]></code>
+    </MissingOverrideAttribute>
+  </file>
+  <file src="tests/GatewayTest.php">
+    <UndefinedClass>
+      <code><![CDATA[GatewayTestCase]]></code>
+    </UndefinedClass>
+    <UnusedClass>
+      <code><![CDATA[GatewayTest]]></code>
+    </UnusedClass>
+  </file>
+  <file src="tests/Message/PurchaseRequestTest.php">
+    <UndefinedClass>
+      <code><![CDATA[TestCase]]></code>
+    </UndefinedClass>
+    <UnusedClass>
+      <code><![CDATA[PurchaseRequestTest]]></code>
+    </UnusedClass>
+  </file>
+  <file src="tests/Message/ResponseTest.php">
+    <UndefinedClass>
+      <code><![CDATA[TestCase]]></code>
+    </UndefinedClass>
+    <UnusedClass>
+      <code><![CDATA[ResponseTest]]></code>
+    </UnusedClass>
+  </file>
+</files>
